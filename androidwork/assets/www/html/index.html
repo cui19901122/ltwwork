@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+* {
+	margin: 0;
+}
+
+.base {
+	width: 100%;
+	height: 100vh;
+	/* background-color: #4169E1; */
+	background-color: #DEDEDE； font-family :       楷体;
+	font-size: 14px;
+}
+
+.header {
+	width: 100%;
+	height: 5%;
+	background-color: aquamarine;
+	text-align: center;
+}
+
+.center {
+	width: 100%;
+	height: 85%;
+	border: 2px solid black;
+}
+.show{
+width:100%;
+height: 100%;
+display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.head {
+	width: 100%;
+	height: 30%;
+	background-color: purple;
+}
+
+.gongao {
+	width: 100%;
+	height: 8%;
+	border: 1px solid red;
+}
+
+.classlist {
+	width: 100%;
+	height: 62%;
+	background-color: yellow;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.classname {
+	width: 80px;
+	height: 80px;
+	border: 2px solid #7FFFD4;
+	margin: 5px;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer {
+	width: 100%;
+	height: 10%;
+	background-color: aquamarine;
+}
+
+.bottom {
+	width: 25%;
+	height: 100%;
+	display: flex;
+flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.center .show{
+display: block;
+}
+.center>div{
+display: none;
+}
+</style>
+</head>
+<body>
+	<div class="base">
+		<div class="header">系统首页</div>
+		<div class="center">
+			<div class="show">
+				<div class="head"></div>
+				<div class="gongao">公告：今天天气晴，温度20，湿度较大，风级5~6级</div>
+				<div class="classlist">
+				</div>
+			</div>
+		<!-- 	<div>报表</div>
+			<div>其他</div>
+			<div>我的</div> -->
+		</div>
+
+		<div class="footer">
+			<!-- <div class="bottom">首页</div>
+			<div class="bottom">报表</div>
+			<div class="bottom">其他</div>
+			<div class="bottom">我的</div> -->
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+   
+	var listobj = document.getElementsByClassName("classlist")[0];
+	function Urlpath() {
+		var urlobj = decodeURI(location.search);
+		alert(urlobj);
+
+		var str = urlobj.substr(urlobj.indexOf("=") + 1);
+		alert(str);
+
+		var datas = JSON.parse(str);
+
+		alert(datas.length);
+
+		datas.forEach(function(value, index) {
+
+			/* alert(value["cname"], value["curl"]); */
+			var divObj = document.createElement("div");
+			divObj.className = "classname";
+			divObj.setAttribute("onclick", "forward('" + value["curl"] + "')")
+			divObj.innerText = value["cname"];
+			/* alert(value["cimg"]);  */
+			var imgObj = document.createElement("img");
+			imgObj.setAttribute("src", value["cimg"]);
+			divObj.appendChild(imgObj);
+			listobj.appendChild(divObj);
+		});			
+	}
+	
+	Urlpath();
+
+	function forward(id)
+	{
+		
+	    window.location.href=id;
+		
+	}
+	/* //获取每个底部单元格
+	var bottomObjs=document.getElementsByClassName("bottom");
+	//获取所有的div
+	
+	var  centerObj=document.getElementsByClassName("center")[0];
+	
+	var  divObj=centerObj.getElementsByTagName("div");
+	
+	
+	for(var i=0;i<bottomObjs.length;i++)
+	{
+		bottomObjs[i].inn=i;
+		
+		bottomObjs[i].onmouseover=function()
+		{
+			this.style.backgroundColor="#ca98fd";
+			
+			for(var j=0;j<bottomObjs.length;j++)
+			{
+				divObj[j].className="";	
+			}
+			console.log(i);
+			console.log(divObj[this.inn]);
+			divObj[this.inn].className="show";
+			
+		}
+		bottomObjs[i].onmouseout=function()
+		{
+			this.style.backgroundColor="#95B8E7";
+		} */
+		
+</script>
+</html>

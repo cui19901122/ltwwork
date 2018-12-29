@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+* {
+	margin: 0;
+}
+
+.base {
+	width: 100%;
+	height: 100vh;
+	/* background-color: #4169E1; */
+	/* background-color:#DEDEDE； */
+	font-family: 楷体;
+	font-size: 14px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.header {
+	width: 100%;
+	height: 5%;
+	background-color: #DEDEDE； text-align :   center;
+}
+
+.conter {
+	width: 100%;
+	height: 90%;
+	background-color: #E0EEEEE;
+	/* border: 1px solid yellow; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.form {
+	width: 80%;
+	height: 80%;
+	/* border: 1px solid red; */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.bor {
+	width: 80%;
+	height: 15%;
+	margin: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+input {
+	text-align: center;
+	width: 100%;
+	height: 100%;
+}
+
+.footer {
+	width: 100%;
+	height: 5%;
+	background-color: #DEDEDE； text-align :   center;
+}
+</style>
+</head>
+<body>
+	<div class="base">
+		<div class="header">系统登录</div>
+		<div class="conter">
+			<div class="form">
+				<div class="bor">
+					<input type="text" id="username" placeholder="输入用户姓名:">
+				</div>
+				<div class="bor">
+					<input type="text" id="userpwd" placeholder="输入用户密码:">
+				</div>
+				<div class="bor">
+					<input type="button" id="denglu" value="用户登录">
+				</div>
+				<div class="bor">
+					<input type="button" id="zhuce" value="用户注册">
+				</div>
+			</div>
+		</div>
+		<div class="footer">汀旭工作室</div>
+	</div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+//找到登录元素
+var loginbtn=document.getElementById("denglu");
+
+loginbtn.onclick=function()
+{
+	alert("按钮被点击");
+	//获取输入的值
+	 var nameobj=document.getElementById("username");
+	var pwdobj=document.getElementById("userpwd");
+ 	alert(nameobj.value+","+pwdobj.value);
+	
+	
+ 	/*  $.ajax({
+		   	type:'post',
+		   	url:'http://a25p7k.natappfree.cc/user',
+		   	data:{"action":'login','username':nameobj.value,"userpwd":pwdobj.value},
+		   	dataType:'json',
+		   	success:function(datas)
+		   	{
+		   		 alert(datas.msg);
+		   		 var jsondata=datas.contentdata;
+		   		 alert(jsondata);
+		   		window.location.href="./index.html?params="+encodeURI(JSON.stringify(jsondata));
+		   		 
+		   	},
+		   	fail:function(error)
+		   	{
+		   		alert("失败");
+		   	}
+	
+	 }); */
+	//带有请求的参数
+	 var formdatas=new FormData();
+	formdatas.append("action","login");
+	formdatas.append("username",nameobj.value);
+	formdatas.append("userpwd",pwdobj.value);
+	
+	var options={method:"post",body:formdatas};
+	
+	alert("------->",fetch);
+	
+	fetch("http://feqcuy.natappfree.cc/user",options).then(function(response)
+			{
+		if(response.status==200)
+		{
+			alert("连接成功！")
+			
+			//接受参数
+            response.json().then(function(data)
+            		{
+            	          alert(data.msg);
+            	          alert(data.contentdata);
+            	          /* alert(typeof data.contentdata); */
+            	          
+            	          var jsondata=data.contentdata;
+            	          /* alert(jsondata); */
+            	        /*  jsondata.forEach(function(val,index){
+   						   
+   						    alert(val["cname"]); 
+   						   
+   					   }) */
+            	          
+            	          if(data.msg=="success")
+            	          {	 
+            	        	//encodeURI设置编码的函数
+            	        	window.location.href="./index.html?params="+encodeURI(JSON.stringify(jsondata));
+            	          }
+            	          else
+            	          {
+            	        	  
+            	          }
+            		});
+		}
+		            
+	}).catch(function(error){
+		        alert("连接异常",error);
+			});
+	alert("Ending")
+} 
+
+
+
+</script>
+
+</html>
