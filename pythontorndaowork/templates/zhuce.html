@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <style type="text/css">
+        * {
+	margin: 0px;
+	font-family: "微软雅黑";
+	font-size: 20px;
+}
+
+#base {
+	width: 100%;
+	height: 100vh;
+	background-color: honeydew;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+h1{
+margin: 30px;
+}
+#count {
+	width: 50%;
+	height: 60%;
+	background-color: khaki;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+input {
+	width: 100%;
+	height: 20%;
+	margin: 10px;
+	text-align: center;
+	letter-spacing: 10px;
+}
+
+input[type="submit"]:hover {
+	background-color: deepskyblue;
+}
+
+    </style>
+</head>
+<body>
+<div id="base">
+
+    <h1>注册页面</h1>
+    <div id="count">
+        <form  method="post" action="user?action=zhuce">
+
+            <input type="text" name="username" placeholder="输入用户姓名:"><p>
+            <input type="text" name="userpwd" placeholder="输入用户密码:"><p>
+           <!-- <input type="text" name="useryzm"><p>-->
+            <input type="submit" value="用户注册">
+            <input type="submit" value="用户登录" formaction="user?action=login">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
