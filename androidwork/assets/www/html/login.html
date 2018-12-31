@@ -5,15 +5,15 @@
 <title>Insert title here</title>
 <style type="text/css">
 * {
-	margin: 0;
+	margin: 0px;
 }
 
 .base {
 	width: 100%;
 	height: 100vh;
 	/* background-color: #4169E1; */
-	/* background-color:#DEDEDE； */
-	font-family: 楷体;
+background-color: #D4D4D4;
+		font-family: 楷体;
 	font-size: 14px;
 	text-align: center;
 	display: flex;
@@ -21,17 +21,31 @@
 	justify-content: center;
 	align-items: center;
 }
+.word{
+width: 60%;
+height: 80%;
 
+		font-family: 黑体;
+	font-size: 20px;
+	text-align: center;
+	line-height:center;
+}
 .header {
 	width: 100%;
-	height: 5%;
-	background-color: #DEDEDE； text-align :   center;
+	height: 8%;
+/* 	line-height:center; */
+	
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+
 }
 
 .conter {
 	width: 100%;
-	height: 90%;
-	background-color: #E0EEEEE;
+	height: 84%;
+	background-color: #E6E6FA;
 	/* border: 1px solid yellow; */
 	display: flex;
 	justify-content: center;
@@ -41,7 +55,7 @@
 .form {
 	width: 80%;
 	height: 80%;
-	/* border: 1px solid red; */
+	 border: 1px solid #DEDEDE; 
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -65,14 +79,22 @@ input {
 
 .footer {
 	width: 100%;
-	height: 5%;
-	background-color: #DEDEDE； text-align :   center;
+	height: 8%;
+	/* background-color: #CDC9C9;  */
+		display: flex;
+
+	justify-content: center;
+	align-items: center;
+	
 }
 </style>
 </head>
 <body>
 	<div class="base">
-		<div class="header">系统登录</div>
+		<div class="header">
+		   <div class="word">欢迎使用汇编软件APP</div>
+		
+		</div>
 		<div class="conter">
 			<div class="form">
 				<div class="bor">
@@ -89,7 +111,9 @@ input {
 				</div>
 			</div>
 		</div>
-		<div class="footer">汀旭工作室</div>
+		<div class="footer">
+		<div class="word">汀旭工作室</div>
+		</div>
 	</div>
 </body>
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
@@ -133,9 +157,9 @@ loginbtn.onclick=function()
 	
 	var options={method:"post",body:formdatas};
 	
-	alert("------->",fetch);
+	/* alert("------->",fetch); */
 	
-	fetch("http://feqcuy.natappfree.cc/user",options).then(function(response)
+	fetch("http://yhjzky.natappfree.cc/user",options).then(function(response)
 			{
 		if(response.status==200)
 		{
@@ -149,7 +173,7 @@ loginbtn.onclick=function()
             	          /* alert(typeof data.contentdata); */
             	          
             	          var jsondata=data.contentdata;
-            	          /* alert(jsondata); */
+            	       /*    alert(jsondata);  */
             	        /*  jsondata.forEach(function(val,index){
    						   
    						    alert(val["cname"]); 
@@ -169,7 +193,7 @@ loginbtn.onclick=function()
 		}
 		            
 	}).catch(function(error){
-		        alert("连接异常",error);
+		        /* alert("连接异常",error); */
 			});
 	alert("Ending")
 } 

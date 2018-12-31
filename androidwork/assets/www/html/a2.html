@@ -19,6 +19,9 @@ width: 100%;
 width: 100%;
 	height: 60%;
 	border: 2px solid black;
+		display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 </style>
@@ -37,11 +40,11 @@ java班级男女比例
 alert("请求业务报表");
 
    var  formData=new FormData();
-   formData.append("datas","quaryUsersexcount");
+   formData.append("antv","quaryUsersexcount");
 
    var options={method:'post',body:formData};
   
-   fetch("http://feqcuy.natappfree.cc/antv",options).then(function(response){
+   fetch("http://yhjzky.natappfree.cc/antv",options).then(function(response){
 	  
 	   
 	  if(response.status==200)
@@ -50,16 +53,16 @@ alert("请求业务报表");
 		  
 		  response.json().then(function(datas){
 			  
-			  alert(datas.jsonDatas);
+			  alert(datas.sexDatas);
 			  
-			  createView(datas.jsonDatas);
+			  createView(datas.sexDatas);
 			  
 		  });
 	  }
 	  
   }).catch(function(error){
 	  
-	  
+	 /*  alert("异常"); */
   });
    
    

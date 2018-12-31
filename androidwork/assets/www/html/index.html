@@ -5,33 +5,46 @@
 <title>Insert title here</title>
 <style type="text/css">
 * {
-	margin: 0;
+	margin: 0px;
 }
 
 .base {
 	width: 100%;
 	height: 100vh;
 	/* background-color: #4169E1; */
-	background-color: #DEDEDE； font-family :       楷体;
-	font-size: 14px;
+	/* background-color: #DEDEDE; */
+	 font-family : 楷体;
+
 }
 
 .header {
 	width: 100%;
 	height: 5%;
-	background-color: aquamarine;
-	text-align: center;
+	/* background-color: aquamarine; */
+background-color: #E6E6FA;
+	/* 	text-align: center; */
 }
+.word{
+width: 100%;
+height: 100%;
+
+		/* font-family: 黑体; */
+	font-size: 16px;
+	text-align: center;
+	line-height:center;
+}
+
 
 .center {
 	width: 100%;
 	height: 85%;
-	border: 2px solid black;
+/* 	border: 2px solid black; */
 }
-.show{
-width:100%;
-height: 100%;
-display: flex;
+
+.show {
+	width: 100%;
+	height: 100%;
+	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -40,19 +53,19 @@ display: flex;
 .head {
 	width: 100%;
 	height: 30%;
-	background-color: purple;
+/* 	background-color: purple; */
 }
 
 .gongao {
 	width: 100%;
-	height: 8%;
-	border: 1px solid red;
+	height: 5%;
+	/* border: 1px solid red; */
 }
 
 .classlist {
 	width: 100%;
-	height: 62%;
-	background-color: yellow;
+	height: 65%;
+	background-color: #E6E6FA;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -60,11 +73,11 @@ display: flex;
 }
 
 .classname {
-	width: 80px;
-	height: 80px;
-	border: 2px solid #7FFFD4;
-	margin: 5px;
-	border-radius: 5px;
+	width: 30%;
+	height: 25%;
+	border: 1px solid #DEDEDE;
+	/* margin: 5px; */
+	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -75,57 +88,91 @@ display: flex;
 	width: 100%;
 	height: 10%;
 	background-color: aquamarine;
+	display: flex;
+	flex-wrap:nowarp;
+	 align-items : center;
+	justify-content: center;
 }
 
 .bottom {
 	width: 25%;
 	height: 100%;
 	display: flex;
-flex-wrap: wrap;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
 
-.center .show{
-display: block;
+.imgs {
+	width: 90%;
+	height: 70%;
+} 
+.bom{
+width: 100%;
+	height: 20%;
+	text-align: center;
 }
-.center>div{
-display: none;
+.center .show {
+	display: block;
+}
+
+.center>div {
+	display: none;
 }
 </style>
 </head>
 <body>
 	<div class="base">
-		<div class="header">系统首页</div>
+		<div class="header">
+		  <div class="word">汇编软件APP首页</div>
+		</div>
 		<div class="center">
 			<div class="show">
-				<div class="head"></div>
-				<div class="gongao">公告：今天天气晴，温度20，湿度较大，风级5~6级</div>
-				<div class="classlist">
+				<div class="head">
+					<img src="../img/1.png" width="100%" height="100%">
 				</div>
+				<div class="gongao">公告：今天天气晴，温度20，风级5~6级
+				</div>
+				<div class="classlist"></div>
 			</div>
-		<!-- 	<div>报表</div>
-			<div>其他</div>
-			<div>我的</div> -->
 		</div>
 
 		<div class="footer">
-			<!-- <div class="bottom">首页</div>
-			<div class="bottom">报表</div>
-			<div class="bottom">其他</div>
-			<div class="bottom">我的</div> -->
+			<div class="bottom">
+				<div class="imgs">
+					<img src="../img/home.png" width="100%" height="100%">
+			    </div>
+			    <div class="bom">首页</div>
+			</div>
+			<div class="bottom">
+				<div class="imgs">
+					<img src="../img/search.png" width="100%" height="100%">
+			    </div>
+			    <div class="bom">报表</div>
+			</div>
+			<div class="bottom">
+				<div class="imgs">
+					<img src="../img/setting-fill.png" width="100%" height="100%">
+			    </div>
+			    <div class="bom">其他</div>
+			</div>
+			<div class="bottom">
+				<div class="imgs">
+					<img src="../img/home.png" width="100%" height="100%">
+			   </div>
+		       <div class="bom">我的</div>
+			</div>
 		</div>
 	</div>
 </body>
 <script type="text/javascript">
-   
-	var listobj = document.getElementsByClassName("classlist")[0];
+ 	 var listobj = document.getElementsByClassName("classlist")[0];
 	function Urlpath() {
 		var urlobj = decodeURI(location.search);
 		alert(urlobj);
 
 		var str = urlobj.substr(urlobj.indexOf("=") + 1);
-		alert(str);
+		/* alert(str); */
 
 		var datas = JSON.parse(str);
 
@@ -133,57 +180,27 @@ display: none;
 
 		datas.forEach(function(value, index) {
 
-			/* alert(value["cname"], value["curl"]); */
+			/* alert(value["lname"], value["lurl"]);  */
 			var divObj = document.createElement("div");
 			divObj.className = "classname";
-			divObj.setAttribute("onclick", "forward('" + value["curl"] + "')")
-			divObj.innerText = value["cname"];
-			/* alert(value["cimg"]);  */
+			divObj.setAttribute("onclick", "forward('" + value["lurl"] + "')")
+			divObj.innerText = value["lname"];
+			/* alert(value["limg"]);  */
 			var imgObj = document.createElement("img");
-			imgObj.setAttribute("src", value["cimg"]);
+			imgObj.setAttribute("src", value["limg"]);
 			divObj.appendChild(imgObj);
 			listobj.appendChild(divObj);
-		});			
+		});
 	}
-	
+
 	Urlpath();
 
-	function forward(id)
-	{
-		
-	    window.location.href=id;
-		
+	function forward(id) {
+
+		window.location.href = id;
+
 	}
-	/* //获取每个底部单元格
-	var bottomObjs=document.getElementsByClassName("bottom");
-	//获取所有的div
-	
-	var  centerObj=document.getElementsByClassName("center")[0];
-	
-	var  divObj=centerObj.getElementsByTagName("div");
-	
-	
-	for(var i=0;i<bottomObjs.length;i++)
-	{
-		bottomObjs[i].inn=i;
-		
-		bottomObjs[i].onmouseover=function()
-		{
-			this.style.backgroundColor="#ca98fd";
-			
-			for(var j=0;j<bottomObjs.length;j++)
-			{
-				divObj[j].className="";	
-			}
-			console.log(i);
-			console.log(divObj[this.inn]);
-			divObj[this.inn].className="show";
-			
-		}
-		bottomObjs[i].onmouseout=function()
-		{
-			this.style.backgroundColor="#95B8E7";
-		} */
-		
+	 
+
 </script>
 </html>
