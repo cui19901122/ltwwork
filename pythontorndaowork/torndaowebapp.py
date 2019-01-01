@@ -100,12 +100,107 @@ class AntvHandler(tornado.web.RequestHandler):
             print("data-->", data)
             print(type(data))
             jsonDatas = json.loads(data)
-            print("jsonDatas-->", jsonDatas)
-            self.finish({"jsonDatas":jsonDatas})
-
-
-
-
+            print("sexDatas-->", jsonDatas)
+            self.finish({"sexDatas":jsonDatas})
+        elif methond=="querylistclass":
+            url = "http://127.0.0.1:8100/userdataservice/user?wsdl"
+            service = suds.client.Client(url)
+            data = service.service.querylistclass()
+            print("data-->", data)
+            print(type(data))
+            jsonDatas = json.loads(data)
+            print("querylistclass-->", jsonDatas)
+            self.finish({"querylistclass":jsonDatas})
+        elif methond=="quaryUsersexcount1":
+            url = "http://127.0.0.1:8100/userdataservice/user?wsdl"
+            service = suds.client.Client(url)
+            data = service.service.quaryUsersexcount1()
+            print("data-->", data)
+            print(type(data))
+            jsonDatas = json.loads(data)
+            print("quaryUsersexcount1-->", jsonDatas)
+            self.finish({"quaryUsersexcount1":jsonDatas})
+        elif methond == "quaryUsersexcount2":
+            url = "http://127.0.0.1:8100/userdataservice/user?wsdl"
+            service = suds.client.Client(url)
+            data = service.service.quaryUsersexcount2()
+            print("data-->", data)
+            print(type(data))
+            jsonDatas = json.loads(data)
+            print("quaryUsersexcount2-->", jsonDatas)
+            self.finish({"quaryUsersexcount2": jsonDatas})
+        elif methond == "quaryUsersexcount3":
+            url = "http://127.0.0.1:8100/userdataservice/user?wsdl"
+            service = suds.client.Client(url)
+            data = service.service.quaryUsersexcount3()
+            print("data-->", data)
+            print(type(data))
+            jsonDatas = json.loads(data)
+            print("quaryUsersexcount3-->", jsonDatas)
+            self.finish({"quaryUsersexcount3": jsonDatas})
+        elif methond == "quaryUsersexcount4":
+            url = "http://127.0.0.1:8100/userdataservice/user?wsdl"
+            service = suds.client.Client(url)
+            data = service.service.quaryUsersexcount4()
+            print("data-->", data)
+            print(type(data))
+            jsonDatas = json.loads(data)
+            print("quaryUsersexcount4-->", jsonDatas)
+            self.finish({"quaryUsersexcount4": jsonDatas})
+        elif methond == "quaryUsersaddres1":
+            url = "http://127.0.0.1:8100/userdataservice/user?wsdl"
+            service = suds.client.Client(url)
+            data = service.service.quaryUsersaddres1()
+            print("data-->", data)
+            print(type(data))
+            jsonDatas = json.loads(data)
+            print("quaryUsersaddres1-->", jsonDatas)
+            self.finish({"quaryUsersaddres1": jsonDatas})
+        elif methond == "quaryUserstatecount":
+            url = "http://127.0.0.1:8100/userdataservice/user?wsdl"
+            service = suds.client.Client(url)
+            data = service.service.quaryUserstatecount()
+            print("data-->", data)
+            print(type(data))
+            jsonDatas = json.loads(data)
+            print("quaryUserstatecount-->", jsonDatas)
+            self.finish({"quaryUserstatecount": jsonDatas})
+        elif methond == "quaryUsersaddres2":
+            url = "http://127.0.0.1:8100/userdataservice/user?wsdl"
+            service = suds.client.Client(url)
+            data = service.service.quaryUsersaddres2()
+            print("data-->", data)
+            print(type(data))
+            jsonDatas = json.loads(data)
+            print("quaryUsersaddres2-->", jsonDatas)
+            self.finish({"quaryUsersaddres2": jsonDatas})
+        elif methond == "quaryUsersaddres3":
+            url = "http://127.0.0.1:8100/userdataservice/user?wsdl"
+            service = suds.client.Client(url)
+            data = service.service.quaryUsersaddres3()
+            print("data-->", data)
+            print(type(data))
+            jsonDatas = json.loads(data)
+            print("quaryUsersaddres3-->", jsonDatas)
+            self.finish({"quaryUsersaddres3": jsonDatas})
+        elif methond == "quaryUserstatecount1":
+            url = "http://127.0.0.1:8100/userdataservice/user?wsdl"
+            service = suds.client.Client(url)
+            data = service.service.quaryUserstatecount1()
+            print("data-->", data)
+            print(type(data))
+            jsonDatas = json.loads(data)
+            print("quaryUserstatecount1-->", jsonDatas)
+            self.finish({"quaryUserstatecount1": jsonDatas})
+        elif methond == "quaryUserstatecount2":
+            url = "http://127.0.0.1:8100/userdataservice/user?wsdl"
+            service = suds.client.Client(url)
+            data = service.service.quaryUserstatecount2()
+            print("data-->", data)
+            print(type(data))
+            jsonDatas = json.loads(data)
+            print("quaryUserstatecount2-->", jsonDatas)
+            self.finish({"quaryUserstatecount2": jsonDatas})
 
 
 settings={
