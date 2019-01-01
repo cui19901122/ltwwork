@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+*{
+margin: 0;
+}
+.base{
+width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.conter{
+width: 100%;
+	height: 60%;
+	border: 2px solid black;
+		display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+</style>
+</head>
+<body>
+<div class="base">
+学习人数男女比例
+<div class="conter">
+<canvas id="mountNode"></canvas>
+</div>
+</div>
+</body>
+<script src="https://gw.alipayobjects.com/os/antv/assets/f2/3.3.0/f2.min.js"></script>
+<script type="text/javascript">
+
+alert("请求业务报表");
+
+   var  formData=new FormData();
+   formData.append("antv","quaryUsersexcount");
+
+   var options={method:'post',body:formData};
+  
+   fetch("http://yhjzky.natappfree.cc/antv",options).then(function(response){
+	  
+	   
+	  if(response.status==200)
+	  {
+		  
+		  
+		  response.json().then(function(datas){
+			  
+			  alert(datas.sexDatas);
+			  
+			  createView(datas.sexDatas);
+			  
+		  });
+	  }
+	  
+  }).catch(function(error){
+	  
+	 /*  alert("异常"); */
+  });
+   
+   
+   function   createView(data)
+   {
+	   var chart = new F2.Chart({
+		   id: 'mountNode',
+		   pixelRatio: window.devicePixelRatio
+		 });
+	   
+	   chart.source(data, {
+		   sales: {
+			   tickCount: 2
+		   }
+	    });
+	   
+
+		 chart.interval().position('usersex*usersexcount');
+		 chart.render();
+   }
+
+</script>
+</html>

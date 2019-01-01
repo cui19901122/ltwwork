@@ -3,8 +3,102 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+* {
+	margin: 0px;
+}
+.base {
+	width: 100%;
+	height: 100vh;
+	/* background-color: #4169E1; */
+	/* background-color: #DEDEDE; */
+	 font-family : 楷体;
+
+}
+
+.header {
+	width: 100%;
+	height: 5%;
+	/* background-color: aquamarine; */
+background-color: #E6E6FA;
+	/* 	text-align: center; */
+}
+.word{
+width: 100%;
+height: 100%;
+
+		/* font-family: 黑体; */
+	font-size: 16px;
+	text-align: center;
+	line-height:center;
+}
+.conter{
+width: 100%;
+	height: 95%;
+}
+.classlist{
+width: 100%;
+height: 100%;
+border: 1px solid #DEDEDE;
+display: flex;
+	flex-direction: column;
+justify-content: center;
+	align-items: center;
+}
+
+.classname{
+width: 100%;
+height: 5%;
+border:1px solid blue;
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+}
+</style>
 </head>
 <body>
-
+	<div class="base">
+		编程语言相关报表
+		<div class="header">
+			<div class="word">汇编软件APP首页</div>
+		</div>
+		<div class="conter">
+		  <div class="classlist"></div>
+		</div>
+	</div>
 </body>
+<script type="text/javascript">
+var listobj = document.getElementsByClassName("classlist")[0];
+function Urlpath() {
+	var urlobj = decodeURI(location.search);
+	alert(urlobj);
+
+	var str = urlobj.substr(urlobj.indexOf("=") + 1);
+	/* alert(str); */
+
+	var datas = JSON.parse(str);
+
+	alert(datas.length);
+
+	datas.forEach(function(value, index) {
+
+		/* alert(value["lname"], value["lurl"]);  */
+		var divObj = document.createElement("div");
+		divObj.className = "classname";
+		divObj.setAttribute("onclick", "forward('" + value["burl"] + "')")
+		divObj.innerText = value["bname"];
+		listobj.appendChild(divObj);
+	});
+}
+
+Urlpath();
+
+function forward(id) {
+
+	window.location.href = id;
+
+}
+ 
+</script>
 </html>
