@@ -3,51 +3,52 @@ package com.ltw.web.tables;
 public class Menu
 {
 
-	public int getCid()
-	{
-		return cid;
-	}
 
-	public void setCid(int cid)
-	{
-		this.cid = cid;
-	}
-
-	public String getCname()
-	{
-		return cname;
-	}
-
-	public void setCname(String cname)
-	{
-		this.cname = cname;
-	}
-
-	public String getCurl()
-	{
-		return curl;
-	}
-
-	public void setCurl(String curl)
-	{
-		this.curl = curl;
-	}
-
-	public String getCimg()
-	{
-		return cimg;
-	}
-
-	public void setCimg(String cimg)
-	{
-		this.cimg = cimg;
-	}
-
-	private int cid;
+	private int lid;
 	
-	private String cname;
+	public int getLid()
+	{
+		return lid;
+	}
+
+	public void setLid(int lid)
+	{
+		this.lid = lid;
+	}
+
+	private String lname;
 	
-	private String curl;
+	public String getLname()
+	{
+		return lname;
+	}
+
+	public void setLname(String lname)
+	{
+		this.lname = lname;
+	}
+
+	public String getLurl()
+	{
+		return lurl;
+	}
+
+	public void setLurl(String lurl)
+	{
+		this.lurl = lurl;
+	}
+
+	public String getLimg()
+	{
+		return limg;
+	}
+
+	public void setLimg(String limg)
+	{
+		this.limg = limg;
+	}
+
+	private String lurl;
 	
-	private String cimg;
+	private String limg;
 }

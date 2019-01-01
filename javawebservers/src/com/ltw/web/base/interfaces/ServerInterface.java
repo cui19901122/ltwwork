@@ -24,4 +24,38 @@ public interface ServerInterface
 	
 	@WebMethod
 	public String quaryUsersexcount();
+	
+	@WebMethod
+	public String querylistclass();
+	
+	@WebMethod
+	public String quaryUsersexcount1();
+	
+	@WebMethod
+	public String quaryUsersexcount2();
+	
+	@WebMethod
+	public String quaryUsersexcount3();
+	
+	@WebMethod
+	public String quaryUsersexcount4();
+	
+	@WebMethod
+	public String quaryUsersaddres1();
+	
+	@WebMethod
+	public String quaryUserstatecount();
+	
+	@WebMethod
+	public String quaryUsersaddres2();
+	
+	@WebMethod
+	public String quaryUsersaddres3();
+
+	@WebMethod
+	public String quaryUserstatecount1();
+	
+	@WebMethod
+	public String quaryUserstatecount2();
+
 }
